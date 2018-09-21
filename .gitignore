@@ -1,0 +1,42 @@
+node_modules
+#ignore thumbnails created by windows
+Thumbs.db
+#Ignore files build by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.dll
+*.lib
+*.sbr
+# Visual Studio 2015 cache/options directory
+.vs/
+.vscode/
+.tscache
+/node_modules
+tscommand
+sub/
+/coverage
+/junit-results
+/.idea
+/typings/globals
+tools/
+npm-debug.log
+debug.log
+reports/
+build/
+config/junit-results/jest-junit-result-focusedspecs.xml
+.env

@@ -1,0 +1,31 @@
+{
+  "name": "excrum_server",
+  "version": "1.0.0",
+  "description": "Backend of Excrum SPA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/DevelopersWhoSayNi/Excrum.git"
+  },
+  "author": "Amir and Mariane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevelopersWhoSayNi/Excrum/issues"
+  },
+  "homepage": "https://github.com/DevelopersWhoSayNi/Excrum#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}

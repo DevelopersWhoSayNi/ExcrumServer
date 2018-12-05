@@ -4,13 +4,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 module.exports = function(app) {
-  // var users = require("../controllers/usersController");
-  // app
-  //   .route("/users")
-  //   .post(users.registerUsers)
-  //   .get(users.listUsers);
-
   app.post("/signup", (req, res) => {
+    const jwt_key = process.env.JWT_KEY;
     Users.find({ email: req.body.email })
       .exec()
       .then(user => {
@@ -33,9 +28,17 @@ module.exports = function(app) {
               user
                 .save()
                 .then(() => {
+                  const token = jwt.sign(
+                    { email: user.email, userId: user._id },
+                    jwt_key,
+                    {
+                      expiresIn: "1h"
+                    }
+                  );
                   res.status(201).json({
                     message: "User created",
-                    user
+                    user,
+                    token
                   });
                 })
                 .catch(err => {

@@ -17,7 +17,8 @@ module.exports = function(app) {
         if (user.length > 0) {
           return res.status(409).send({ error: "E-mail already exists" });
         } else {
-          bcrypt.hash(req.body.password, 10, null, (err, hash) => {
+          var salt = bcrypt.genSaltSync(10);
+          bcrypt.hash(req.body.password, salt, null, (err, hash) => {
             if (err) {
               return res.status(500).send({
                 error: err.message

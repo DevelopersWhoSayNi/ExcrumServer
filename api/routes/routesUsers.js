@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 var Users = require("../models/usersModel");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt-nodejs");
 const jwt = require("jsonwebtoken");
 
 module.exports = function(app) {
@@ -17,7 +17,7 @@ module.exports = function(app) {
         if (user.length > 0) {
           return res.status(409).send({ error: "E-mail already exists" });
         } else {
-          bcrypt.hash(req.body.password, 10, (err, hash) => {
+          bcrypt.hash(req.body.password, 10, null, (err, hash) => {
             if (err) {
               return res.status(500).send({
                 error: err.message

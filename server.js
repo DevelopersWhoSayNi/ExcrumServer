@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
+var morgan = require("morgan");
 var port = process.env.PORT || 8000;
 require("dotenv").config();
 
@@ -26,7 +27,7 @@ app.use(function(req, res, next) {
 
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(morgan("combined"));
 var routesUser = require("./api/routes/routesUsers");
 var routesSprints = require("./api/routes/routesSprints");
 routesUser(app);

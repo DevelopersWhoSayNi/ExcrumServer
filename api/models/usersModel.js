@@ -19,10 +19,9 @@ var usersSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  created_date: {
-    type: Date,
-    default: Date.now()
-  }
+  photo: String,
+  role: String,
+  status: String
 });
 
 module.exports = mongoose.model("Users", usersSchema);

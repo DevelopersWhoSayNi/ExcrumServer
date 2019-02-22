@@ -1,36 +1,29 @@
 var mongoose = require("mongoose");
 
+var teamMembersSchema = mongoose.Schema({
+  user_id: String,
+  workings_days: Number,
+  Working_hours: Number
+});
+
 var sprintSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  goal: {
-    type: String
-  },
-  start_date: {
-    type: Date //,    required: true
-  },
-  end_date: {
-    type: Date //,    required: true
-  },
-  effort_forecast: {
-    type: String
-  },
-  effort_added_insprint: {
-    type: String
-  },
-  effort_delivered: {
-    type: String
-  },
-  capacity: {
-    type: String
-  },
-  working_days: {
-    type: String
-  },
-  velocity: {
-    type: String
-  },
-  avaliable_resources: {
-    type: String
+  team_id: String,
+  sprint_number: Number,
+  sprint_iteration: String,
+  start_date: Date, // required: true
+  end_date: Date, // required: true
+  team_members: [teamMembersSchema],
+  sprint_data: {
+    effort_expected_forecast: Number,
+    effort_forecast: Number,
+    effort_added: Number,
+    effort_delivered: Number,
+    capacity_in_hours: Number,
+    working_days: Number,
+    available_resources: Number,
+    goal: String,
+    goal_status: String
   }
 });
 

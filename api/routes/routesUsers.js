@@ -4,12 +4,6 @@ const bcrypt = require("bcrypt-nodejs");
 const jwt = require("jsonwebtoken");
 
 module.exports = function(app) {
-  // var users = require("../controllers/usersController");
-  // app
-  //   .route("/users")
-  //   .post(users.registerUsers)
-  //   .get(users.listUsers);
-
   app.post("/signup", (req, res) => {
     Users.find({ email: req.body.email })
       .exec()
@@ -29,7 +23,10 @@ module.exports = function(app) {
                 userID: req.body.userID,
                 name: req.body.name,
                 email: req.body.email,
-                password: hash
+                password: hash,
+                photo: req.body.photo,
+                role: req.body.role,
+                status: req.body.status
               });
               user
                 .save()
